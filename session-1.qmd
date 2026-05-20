@@ -59,9 +59,15 @@ Demonstration in class:
 - Types of Resources
 - Choosing and configuring an analysis app
   - **AoU Jupyter**: This is what we want.
-  - R Analysis Environment for AoU: If you prefer RStudio envrionment, but more expensive.
+  - R Analysis Environment for AoU: For those who prefer RStudio environment.
   - JupyterLab Spark Cluster: This is for genomics.
-  - JupyterLab NVIDIA options: These are for AI applications needing GPU nodes. Very expensive.
+  - JupyterLab NVIDIA options: These are GPU-accelerated environment suitable for AI/ML, and very expensive.
+
+## File Management
+
+- Bucket for storage
+- Viewing files: "Browse" and GCP
+- Deleting files: exercise caution!
 
 ## Billing
 
