@@ -67,6 +67,7 @@ Demonstration in class:
 
 - Bucket for storage
 - Viewing files: "Browse" and GCP
+- Preview mode for notebooks
 - Deleting files: exercise caution!
 
 ## Billing
@@ -90,7 +91,9 @@ Demonstration in class:
 
 ## Preparing for Next Session
 
-In Session 2, we will learn basic R programming. We will use Posit Cloud, a cloud computing platform for R community. A free account will suffice for our purpose. Go to Posit Cloud: <https://posit.cloud> and click on `Log In`. Create a new account or log in with your Gmail account if you have one. Ensure you are able to log in prior to Session 2. 
+In Session 2, we will learn basic R programming. We will use [Google Colab](https://colab.research.google.com), a cloud-based Jupyter environment. This way, you do not have to deal with installations on your own machine and can start coding right away from a browser window.
+
+
 
 
 

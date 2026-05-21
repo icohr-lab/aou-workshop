@@ -8,7 +8,7 @@ number-depth: 3
 
 Session 2 will focus on learning the basics of R programming. We will first work with synthetic data to practice common R functions and syntax, followed by logging into *All of Us* Workbench and running the queries we set up last time.
 
-Unless indicated otherwise, we will practic R on [Posit Cloud](https://posit.cloud).
+Unless indicated otherwise, we will practice R on [Google Colab](https://colab.research.google.com).
 
 At the end of Session 2, learners will be able to:
 
