@@ -439,39 +439,26 @@ write_csv(combined_df, "cleaned_dataset.csv")  # file path will be different
 ```
 
 
+## Navigating Researcher Workbench Continued
+
+Demonstration in class:
+
+- Choosing and configuring an analysis app
+  - **AoU Jupyter**: This is what we want.
+  - R Analysis Environment for AoU: For those who prefer RStudio environment.
+  - JupyterLab Spark Cluster: This is for genomics.
+  - JupyterLab NVIDIA options: These are GPU-accelerated environment suitable for AI/ML, and very expensive.
+
 ## Running Queries and Working with Queried Data
 
-Demonstration in class.
+Demonstration in class:
 
-## Saving to and Reading from Workspace Bucket
-
-In *All of Us* Workbench, running the code like `write_csv(combined_df, "cleaned_dataset.csv")` will create a CSV file in your current working directory. For permanent and secure storage, we need to copy the file to the Workspace Bucket. Below code is what it looks like when you save a file to the bucket. 
-
-::: {.callout-warning}
-Do not run these code blocks in Posit Cloud or local RStudio. It will only work within the *All of Us* Workbench.
-:::
-
-```{r}
-#| eval: false
-# Retrieve the environment variable for the bucket path
-my_bucket <- Sys.getenv("WORKSPACE_BUCKET")
-# Save the file to a "data" directory in the workspace bucket
-system(paste0("gsutil cp cleaned_dataset.csv ", my_bucket, "/data/"))
-```
-
-In the second line of the code above, `paste0()` function constructs a string of characters with given arguments. It creates a system command with `gsutil`, a command that allows us to interact with the bucket. `cp` is a system command that means "copy". Then, the constructed system command is passed to the function, `system()`, which is used to invoke operating system commands directly from the R console. 
-
-Conversely, when you want to read a file from the bucket, you will do something like this:
-```{r}
-#| eval: false
-# Copy the file in the bucket to the current working directory
-system(paste0("gsutil cp ", my_bucket, "/data/cleaned_dataset.csv ."))
-# Read the csv file as a dataframe
-df <- read_csv("cleaned_dataset.csv")
-```
+- File organization in the Bucket
+- Browsing and viewing files in the Workbench vs. GCP
 
 
 ## Preparing for Next Session
 
-Before the next session, apply what you learned today to your *All of Us* datasets to clean and construct an analysis-ready dataset. Make a note of any issues. We will begin with a brief Q & A next time. 
+Create a your own project workspace and at least one data snapshot using Data Explorer prior to Session 3. Follow the instruction [here](https://support.researchallofus.org/hc/en-us/articles/41981050556564-Getting-Started-in-new-Researcher-Workbench-2-0) or the video posted in the [Getting Started page](https://yesols.github.io/projects/all-of-us/).
 
+Try running the queries, inspect and clean up your dataframes as demonstrated in class.

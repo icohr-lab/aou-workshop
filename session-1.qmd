@@ -57,17 +57,11 @@ Demonstration in class:
 - Creating a Workspace
   - [Writing Your Workspace Description](https://support.researchallofus.org/hc/en-us/articles/30351591538580-Writing-Your-Workspace-Description)
 - Types of Resources
-- Choosing and configuring an analysis app
-  - **AoU Jupyter**: This is what we want.
-  - R Analysis Environment for AoU: For those who prefer RStudio environment.
-  - JupyterLab Spark Cluster: This is for genomics.
-  - JupyterLab NVIDIA options: These are GPU-accelerated environment suitable for AI/ML, and very expensive.
+
 
 ## File Management
 
 - Bucket for storage
-- Viewing files: "Browse" and GCP
-- Preview mode for notebooks
 - Deleting files: exercise caution!
 
 ## Billing
