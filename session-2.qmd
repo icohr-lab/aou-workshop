@@ -83,6 +83,7 @@ Logicals are binary data with values `TRUE` and `FALSE`. While this type of data
 
 ### Date
 
+Date data types represent calendar dates and times. In *All of Us* data, variables like `condition_start_date` fall into this category. While they might look like character strings (e.g., "2024-10-31"), R stores them numerically under the hood and is able to calculate things like age or the number of days between two medical visits.
 
 
 ## Data Structures
