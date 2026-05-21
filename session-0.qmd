@@ -29,10 +29,5 @@ These files are linked in the [Additional Resources](resources.qmd) page
 - If planning on publishing or presenting your result:
   - [Publication and Presentation Checklist](https://support.researchallofus.org/hc/en-us/articles/22344017910804-All-of-Us-Researcher-Publication-Presentation-and-Poster-Checklist)
 
-- Strategies to keep notebooks and data files organized
-
-## Creating a Workspace
-
-Create a Workspace prior to Session 1. Follow the instruction [here](https://support.researchallofus.org/hc/en-us/articles/41981050556564-Getting-Started-in-new-Researcher-Workbench-2-0) or the video posted in the [Getting Started page](https://yesols.github.io/projects/all-of-us/).
 
 ## Q&A

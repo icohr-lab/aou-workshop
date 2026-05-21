@@ -454,11 +454,12 @@ Demonstration in class:
 Demonstration in class:
 
 - File organization in the Bucket
+- Strategies to keep Notebooks organized
 - Browsing and viewing files in the Workbench vs. GCP
 
 
 ## Preparing for Next Session
 
-Create a your own project workspace and at least one data snapshot using Data Explorer prior to Session 3. Follow the instruction [here](https://support.researchallofus.org/hc/en-us/articles/41981050556564-Getting-Started-in-new-Researcher-Workbench-2-0) or the video posted in the [Getting Started page](https://yesols.github.io/projects/all-of-us/).
+Create your own project workspace and at least one data snapshot using Data Explorer prior to Session 3. Follow the instruction [here](https://support.researchallofus.org/hc/en-us/articles/41981050556564-Getting-Started-in-new-Researcher-Workbench-2-0) or the video posted in the [Getting Started page](https://yesols.github.io/projects/all-of-us/).
 
 Try running the queries, inspect and clean up your dataframes as demonstrated in class.
