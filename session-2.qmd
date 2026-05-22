@@ -12,10 +12,9 @@ Unless indicated otherwise, we will practice R on [Google Colab](https://colab.r
 
 At the end of Session 2, learners will be able to:
 
-1. Manipulate different types of data types in R.
-2. Read in CSV files as a dataframe and save dataframes as CSV files.
-3. Run auto-generated queries and obtain data.
-4. Inspect and clean up data.
+1. Understand different types of data types and structures in R.
+2. Inspect and manipulate dataframes.
+3. Familiarize with Data Explorer and app configurations in the Workbench.
 
 ## Preliminaries
 
@@ -312,145 +311,6 @@ df_left_joined %>% drop_na(BMI)
 If the variable is critical and you want to keep all the rows, you can look into advanced statistical methods called "imputation" which fills in missing values.
 
 
-## Reading Files
-
-In programming, plain-text files are preferred over application-dependent file formats such as Word or Excel files. Comma-separated values (CSV) format is a popular file format for tabular data. We use this file type extensively to work with *All of Us* data.
-
-We use `read_csv()` function to read CSV files into dataframes so we can work with them. Typically, we put the file path inside the function, which will look like `read_csv("file.csv")` or `read_csv("directory/file.csv")`. For this practice, I placed practice files on the web so that they can be directly read via file URLs. Copy/paste and run the following code to obtain the data:
-```{r}
-#| label: load-synthetic-data-display
-#| message: false
-#| eval: false
-
-library(readr)
-
-# Read directly from public URLs
-person_df <- read_csv("https://raw.githubusercontent.com/yesols/aou-workshop/refs/heads/main/data/demographic_data.csv")
-condition_df <- read_csv("https://raw.githubusercontent.com/yesols/aou-workshop/refs/heads/main/data/conditions.csv")
-drug_df <- read_csv("https://raw.githubusercontent.com/yesols/aou-workshop/refs/heads/main/data/drug_exposures.csv")
-```
-
-```{r}
-#| label: load-synthetic-data-local
-#| message: false
-#| echo: false
-
-library(readr)
-
-# Read from local directory for site rendering
-person_df <- read_csv("data/demographic_data.csv")
-condition_df <- read_csv("data/conditions.csv")
-drug_df <- read_csv("data/drug_exposures.csv")
-```
-
-::: {.callout-note}
-The data in these files are randomly generated and completely fake, but designed to resemble *All of Us* data although much simplified.  
-:::
-
-Now, try the commands, `dim()`, `head()`, `tail()`, `str()`, etc, to inspect the these three dataframes.
-
-In subsequent sections, we will learn how to clean up data and merge these three dataframes. Ultimately, we will analyze the dataset to investigate association between anticholinergic medications and dementia.
-
-## Recoding Values
-
-Sometimes we have to recode values in categorical variables. For example, race in *All of Us* often have categories you might want to collapse into one. Let's take a look at our example data.
-```{r}
-# Inspect the first few lines of the demographics data
-head(person_df)
-```
-
-```{r}
-person_df %>% count(race) # Count the values in race column
-```
-
-"More than one population" and "None of these" can be recoded as "Other". We could also change "Skip" to "Unknown" and "Black or African American" to "Black" for simplicity. We can use `recode_values()` if we are changing all values or `replace_values()` if just updating some of the values. In our case, we just want to tweak some of the categories, so we'll use `replace_values()`.
-```{r}
-# Recode race category
-person_df <- person_df %>%
-  mutate(
-    race = replace_values(
-      race,
-      "Black or African American" ~ "Black",
-      "Skip" ~ "Unknown",
-      c("More than one population", "None of these") ~ "Other"
-    )
-  )
-```
-
-Check the counts again to make sure it worked. This is a good practice to also ensure NAs were not introduced as a result of a coding mistake.
-```{r}
-person_df %>% count(race)
-```
-
-Similarly, we'll also clean up sex_at_birth categories. We will change anything other than "Female" or "Male" to "Other".
-```{r}
-# Recode sex_at_birth
-person_df <- person_df %>%
-  mutate(
-    sex_at_birth = replace_values(
-      sex_at_birth,
-      c("Intersex", "Prefer not to answer", "Skip") ~ "Other"
-    )
-  )
-```
-Check the result:
-```{r}
-person_df %>% count(sex_at_birth)
-```
-
-## Selecting Earliest Occurrence
-
-When you extract conditions, drug exposures, or lab measurements data in *All of Us*, there are multiple entries per person. In our practice data, we will pick the earliest occurrence of the condition and the earliest occurrence of drug exposure. `slice()` and its variations, `slice_head()`, `slice_sample()`, "slice_min()`, "slice_max()` are useful for subsetting a dataframe in a variety of ways. We will use `slice_min()` to pick the earliest date for each person. `group_by()` function allows us to perform `slice_min()` on grouped rows by `person_id` rather than globally.
-
-```{r}
-earliest_condition <- condition_df %>%
-  group_by(person_id) %>%               # group rows by person_id
-  slice_min(                            
-    order_by = condition_start_date,    # specify which column to evaluate
-    n = 1,                              # pick one row
-    with_ties = FALSE                   # keep only one in case of ties
-  ) %>%
-  ungroup()
-```
-
-We do the same for drug dataframe:
-```{r}
-earliest_drug <- drug_df %>%
-  group_by(person_id) %>%
-  slice_min(
-    order_by = drug_exposure_start_date, 
-    n = 1, 
-    with_ties = FALSE
-  ) %>%
-  ungroup()
-```
-
-
-
-## Merging Demographics with Clinical Data
-
-When you extract *All of Us* data with auto-generated queries, you will have separate dataframes for "person", "conditions", "drug exposures", etc, and you must combine them for analysis. We will use `left_join()` that we learned earlier to merge `condition_df` and `drug_df` to `person_df`.
-
-```{r}
-combined_df <- person_df %>% 
-  left_join(earliest_condition, by = "person_id") %>%
-  left_join(earliest_drug, by = "person_id")
-head(combined_df)  # Check result
-```
-
-
-## Writing and Saving Files
-
-In order to save our data, we use `write_csv()` function to save the dataframe as a CSV file. Its arguments are the dataframe name and a file path:
-```{r}
-#| echo: false
-#write_csv(combined_df, "data/cleaned_dataset.csv")
-```
-
-```{r}
-#| eval: false
-write_csv(combined_df, "cleaned_dataset.csv")  # file path will be different
-```
 
 
 ## Navigating Researcher Workbench Continued
