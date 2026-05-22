@@ -456,6 +456,9 @@ Demonstration in class:
 
 Demonstration in class:
 
+- Continue Data Explorer demo
+  - "View in hierarchy" issue
+  - Source code for conditions and mapping
 - File organization in the Bucket
 - Strategies to keep Notebooks organized
 - Browsing and viewing files in the Workbench vs. GCP
