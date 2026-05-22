@@ -184,7 +184,7 @@ This can be combined with `length()` to show how many unique values in a vector 
 length(unique(df$City))
 ```
 
-I often use this combination to check for redundancies in a large dataframe. For example, let's say I have a demographics dataframe with thousands of participants. I might run `nrow(df_demographics)` and then `length(unique(df_demographics$person_id))`. If the number of rows are larger than the number of unique individuals, then I know there are duplicates which needs further investigation.
+I often use this combination to check for redundancies in a large dataframe. For example, let's say I have a demographics dataframe with thousands of participants. I might run `nrow(df_demographics)` and then `length(unique(df_demographics$person_id))`. If the number of rows is larger than the number of unique individuals, then I know there are duplicates which needs further investigation.
 
 
 ### Subsetting
