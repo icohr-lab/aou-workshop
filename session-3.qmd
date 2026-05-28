@@ -6,7 +6,7 @@ number-depth: 3
 
 ## Learning Objectives
 
-In this session, we will learn common functions to explore data and visualize data using the synthetic dataset we worked with last time. 
+In this session, we will continue data wrangling with larger datasets that resemble *All of Us* EHR data. We will also learn common functions to explore data and visualize data.
 
 At the end of Session 3, you will be able to:
 
@@ -53,7 +53,7 @@ The data in these files are randomly generated and completely fake, but designed
 
 Now, try the commands, `dim()`, `head()`, `tail()`, `str()`, etc, to inspect the these three dataframes.
 
-In subsequent sections, we will learn how to clean up data and merge these three dataframes. Ultimately, we will analyze the dataset to investigate association between anticholinergic medications and dementia.
+In subsequent sections, we will learn how to clean up data and merge these three dataframes. Ultimately, we will analyze the dataset to investigate association between anticholinergic medications (exposure) and dementia (disease).
 
 ## Recoding Values
 
@@ -130,7 +130,6 @@ earliest_drug <- drug_df %>%
 ```
 
 
-
 ## Merging Demographics with Clinical Data
 
 When you extract *All of Us* data with auto-generated queries, you will have separate dataframes for "person", "conditions", "drug exposures", etc, and you must combine them for analysis. We will use `left_join()` that we learned earlier to merge `condition_df` and `drug_df` to `person_df`.
@@ -142,6 +141,40 @@ combined_df <- person_df %>%
 head(combined_df)  # Check result
 ```
 
+## Establishing Temporal Sequence with Dates
+
+In epidemiological research, establishing a timeline is critical. A drug cannot be considered a risk factor for a disease if it was prescribed *after* the disease was diagnosed. Because we merged our datasets in the previous session, our `combined_df` now contains both `drug_exposure_start_date` and `condition_start_date`. Because R recognizes these columns as Date data types, we can compare them mathematically to determine the "true" exposure status of our patients.
+
+We will use `case_when()` function which allows us to write multiple logical conditions, evaluating each row step-by-step to assign the correct exposure status.
+
+```{r}
+combined_df <- combined_df %>%
+  mutate(
+    true_exposure_status = case_when(
+      # Condition 1: No record of taking the drug
+      is.na(drug_exposure_start_date) ~ "Unexposed",
+      # Condition 2: Took the drug, but never got the condition
+      !is.na(drug_exposure_start_date) & is.na(condition_start_date) ~ "Exposed",
+      # Condition 3: Took the drug BEFORE the condition started
+      drug_exposure_start_date < condition_start_date ~ "Exposed",
+      # Condition 4: Took the drug AFTER the condition started
+      drug_exposure_start_date >= condition_start_date ~ "Unexposed (Post-Diagnosis)"
+    )
+  )
+```
+
+Let's check our work by looking at the patients who had both the drug and the condition:
+```{r}
+combined_df %>%
+  filter(!is.na(drug_exposure_start_date) & !is.na(condition_start_date)) %>%
+  select(person_id, drug_exposure_start_date, condition_start_date, true_exposure_status) %>%
+  head()
+```
+
+::: {.callout-note}
+## Math with Dates
+Because dates are stored as numbers under the hood, you can also subtract them! For example, condition_start_date - drug_exposure_start_date will output the exact number of days between the two events.
+:::
 
 ## Writing and Saving Files
 
@@ -194,14 +227,19 @@ df <- df %>% mutate(
 head(df)
 ```
 
-It is also useful to have binary variables to indicate their disease status and drug exposure status. We will use `if_else()` function for this purpose. `if_else()` takes three arguments: condition to evaluate, value if the evaluation is true, value if false.
+It is also useful to have binary variables to indicate their disease status and drug exposure status. We will use `if_else()` function for this purpose. `if_else()` takes three arguments: condition to evaluate, value if the evaluation is true, value if false. 
 ```{r}
 df <- df %>%
   mutate(
     condition_status = if_else(is.na(condition_concept_id), 0, 1), # 0 if condition_concept_id is NA, 1 if not
-    exposure_status = if_else(is.na(drug_concept_id), 0, 1) # 0 if drug_concept_id is NA, 1 if not
+    exposure_status = if_else(true_exposure_status == "Exposed", 1, 0) # 1 if true_exposure_status is "Exposed", 0 if not
   )
 ```
+
+::: {.callout-note}
+## Binary Coding with 1s and 0s
+While you can certainly code your binary variables with character, such as "yes" and "no" or "exposed" and "unexposed," it is safer to code them numerically especially if you are performing logistic regression.
+:::
 
 ## Contingency Table
 

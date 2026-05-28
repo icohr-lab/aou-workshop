@@ -6,15 +6,15 @@ number-depth: 3
 
 ## Learning Objectives
 
-Session 2 will focus on learning the basics of R programming. We will first work with synthetic data to practice common R functions and syntax, followed by demonstration of running queries in the *All of Us* Workbench. 
-
-Unless indicated otherwise, we will practice R on [Google Colab](https://colab.research.google.com). When you start a new Colab notebook, it defaults to python. Change to R by clicking **Runtime > Change runtime type** and select R from the dropdown menu. Click **Save**. Click **Connect** in the top right corner to start coding.
+Session 2 will focus on learning the basics of R programming. We will first work with small datasets to practice common R functions and syntax, followed by demonstration of running queries in the *All of Us* Workbench. 
 
 At the end of Session 2, learners will be able to:
 
 1. Understand different types of data types and structures in R.
 2. Inspect and manipulate dataframes.
 3. Familiarize with Data Explorer and app configurations in the Workbench.
+
+Unless indicated otherwise, we will practice R on [Google Colab](https://colab.research.google.com). When you start a new Colab notebook, it defaults to python. Change to R by clicking **Runtime > Change runtime type** and select R from the dropdown menu. Click **Save**. Click **Connect** in the top right corner to start coding.
 
 ## Preliminaries
 
