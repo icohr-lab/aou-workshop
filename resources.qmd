@@ -24,9 +24,6 @@ title: "Additional Resources"
 
 ## Useful R Packages
 
-- [janitor](https://sfirke.github.io/janitor/index.html)
-  - Useful functions for cleaning data
-  - has `tabyl()` function which is particularly useful for cross-tabulation
 - [broom](https://broom.tidymodels.org)
   - Useful functions for displaying model components as a neat dataframe
 - [gtsummary](https://www.danieldsjoberg.com/gtsummary/)

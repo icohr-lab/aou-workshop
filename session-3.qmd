@@ -248,13 +248,11 @@ Let's take a quick look at MCI/dementia cases breakdown by sex.
 df %>% count(sex_at_birth, condition_status)
 ```
 
-`janitor` package has a nice cross-tabulation function:
+You might prefer a simpler cross tabulation using a base R function, `table()`:
 ```{r}
-#| message: false
-#| warning: false
-library(janitor)
-df %>% tabyl(sex_at_birth, condition_status)
+table(df$sex_at_birth, df$condition_status)
 ```
+
 
 ## Summarize Data
 
