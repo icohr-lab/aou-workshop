@@ -13,7 +13,7 @@ At the end of Session 4, learners will be able to:
 1. Perform t-test, ANOVA, chi-square tests in R.
 2. Fit regression models: simple linear regression, multiple linear regression, logistic regression
 3. Obtain odds ratios from logistic regression models.
-4. Familiarize with navigating JupyterLab and the storage bucket
+4. Familiarize with navigating JupyterLab
 
 ## Setup
 
