@@ -28,8 +28,6 @@ title: "Additional Resources"
   - Useful functions for displaying model components as a neat dataframe
 - [gtsummary](https://www.danieldsjoberg.com/gtsummary/)
   - Convenient package to create publication-ready tables to describe data and more
-- [allofus](https://roux-ohdsi.github.io/allofus/)
-  - Provides convenient functions for working with *All of Us* data 
 - [MatchIt](https://kosukeimai.github.io/MatchIt/index.html)
   - Useful package for creating matched datasets (can do exact matching or propensity score matching)
   - Check out this very approachable tutorial: [Introduction to Propensity Score Matching with MatchIt](https://dlab.berkeley.edu/news/introduction-propensity-score-matching-matchit)
