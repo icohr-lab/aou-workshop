@@ -22,7 +22,7 @@ website:
             file: session-2.qmd
           - text: "Session 3: More Data Wrangling and Exploratory Data Analysis"
             file: session-3.qmd
-          - text: "Session 4: Statistical Analysis"
+          - text: "Session 4: Statistical Analysis and JupyterLab Tips"
             file: session-4.qmd
       - text: "Additional Resources"
         file: resources.qmd

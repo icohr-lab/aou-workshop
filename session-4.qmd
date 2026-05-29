@@ -1,5 +1,5 @@
 ---
-title: "Statistical Analysis"
+title: "Statistical Analysis and JupyterLab Tips"
 number-sections: true
 number-depth: 3
 ---
@@ -13,6 +13,7 @@ At the end of Session 4, learners will be able to:
 1. Perform t-test, ANOVA, chi-square tests in R.
 2. Fit regression models: simple linear regression, multiple linear regression, logistic regression
 3. Obtain odds ratios from logistic regression models.
+4. Familiarize with navigating JupyterLab and the storage bucket
 
 ## Setup
 
@@ -259,11 +260,108 @@ print(tidy_results)
 Regression methods such as linear regression and logistic regression rely on statistical assumptions about underlying data. Before making an inference based on a modeling result, it is critical to check these assumptoms through model diagnostics. Refer to your statistics text or *Additional Resources* link on the left sidebar to learn more. 
 :::
 
+## Navigating the Notebook: Modes and Shortcuts
 
-## Application to All of Us Data
+When you click inside a cell to type code or text, you enter **Edit Mode** (indicated by a blinking cursor and often a highlighted border). However, if you press the `Esc` key or click outside the text box, you switch to **Command Mode** which allows you delete, move, insert cells.
 
-Work on own datasets in *All of Us* Workbench.
+Mastering a few Command Mode keyboard shortcuts will drastically speed up your workflow. Press `Esc` to ensure you are in Command Mode, and try these keystrokes:
 
+* **`A`**: Insert a new cell **A**bove the current one.
+* **`B`**: Insert a new cell **B**elow the current one.
+* **`D`, `D`** (press D twice quickly): **D**elete the current cell.
+* **`Z`**: Undo a deleted cell.
+* **`Shift` + `Enter`**: Execute the code (or format the Markdown) in the current cell and advance to the next one.
+
+
+## Documenting with Markdown Cells
+
+Markdown is a lightweight markup language that is easy to use for simple text formatting. In Jupyter Notebooks, markdown is often used for sectioning the documents and annotating the code. You can change a cell from "Code" to "Markdown", type in the section headings or your comments, and running the cell will render the markdown formatting. 
+
+Here are a few common markdown examples:
+
+```markdown
+# Main Heading
+## Subheading
+### Smaller Heading
+
+**Bold Text**
+*Italic Text*
+
+- Bullet point 1
+- Bullet point 2
+  - Indented bullet point
+
+1. Numbered list
+2. Numbered list
+
+```
+And here is what that exact formatting looks like once the cell is executed:
+
+::: {.callout-note appearance="minimal" icon="false"}
+<div style="font-size: 2em; font-weight: bold; margin-bottom: 0.5em; margin-top: 0.5em;">Main Heading</div>
+<div style="font-size: 1.5em; font-weight: bold; margin-bottom: 0.5em;">Subheading</div>
+<div style="font-size: 1.17em; font-weight: bold; margin-bottom: 0.5em;">Smaller Heading</div>
+
+**Bold Text**<br>
+*Italic Text*
+
+- Bullet point 1
+- Bullet point 2
+  - Indented bullet point
+
+1. Numbered list
+2. Numbered list
+
+:::
+
+
+## Pivoting Survey Data (Long to Wide)
+
+If you pull multiple survey items, the query result will be in a "long" format, where each row corresponds to a single survey item per person. This means that there will be multiple rows per person. We typically want a dataframe where each row is a unique participant and questions are columns with answers as values. We can reshape the dataframe from a long format to a wide format using `pivot_wider()` function. 
+
+First, let's look at a mock example of what your raw survey data might look like:
+
+```{r}
+# Create a mock "long" survey dataframe
+survey_long <- data.frame(
+  person_id = c(1, 1, 1, 2, 2, 2),
+  question = c("1535717", "1585723", "1585729", "1535717", "1585723", "1585729"),
+  T_DISP_answer = c("Yes", "Never", "Good", "No", "Always", "Fair")
+)
+
+head(survey_long)
+```
+
+Now, we will pivot this dataframe so the question IDs become our new column names, and the T_DISP_answers become the values inside those columns.
+```{r}
+# Reshape to wide format
+survey_wide <- survey_long %>%
+  pivot_wider(
+    id_cols = person_id,               # The column that identifies unique rows
+    names_from = question,             # The column containing your new column names
+    values_from = T_DISP_answer,       # The column containing the actual answers
+  )
+
+head(survey_wide)
+```
+
+
+## Other Tips
+
+**Tab completion**: 
+Use tab key to see suggested functions or to drill down a file path. 
+
+**Datetime**: 
+In *All of Us* data, you will often see a datetime column with values in a format, "YYYY-MM-DD 00:00:00 UTC". When you read in a CSV file, this type may be read as character data type. In that case, use `as_date()` function from `lubridate` package (included when you load `tidyverse`).
+
+**R objects vs. files**:
+When you run commands like `df <- read_csv("my_data.csv")`, you are reading a copy of the file contents into the Jupyter environment as an R object (the dataframe `df`). This object exists solely in memory (RAM), not in any directories unlike files. To list all those objects that are currently in your environment, use `ls()` function. Also note that if your notebook kernel restarts or your session times out, all R objects are erased from memory and must be reloaded by re-running your code. 
+
+**%in% operator**:
+%in% checks whether an element exists in a vector. This can be useful when you want to filter rows with certain values. For example: `person_df %>% filter(sex_at_birth %in% c("Male", "Female"))`
+
+**Where am I?**:
+Use `getwd()` function to check the current directory you're in. This may become relevant when you're constructing a relative path of a file.
 
 
 
