@@ -48,6 +48,10 @@ However, knowledge of SQL is not necessary to conduct research projects with *Al
 
 Sometimes, you might want to look up exact data tables and associated column names in *All of Us*. Check on the [Data Dictionary](https://support.researchallofus.org/hc/en-us/articles/360033200232-Data-Dictionaries) which shows you exactly how all the data are organized. It also contains information about suppressed data types.
 
+::: {.callout-note}
+## Workbench 2.0 Changes
+With the new Verily Workbench ("Workbench 2.0"), there are extra tables that facilitate faster queries. So when you query using Data Explorer, the resulting dataset may contain table names and column names that do not appear in the official OMOP CDM.
+:::
 
 ## Navigating Researcher Workbench
 
