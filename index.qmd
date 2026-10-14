@@ -19,20 +19,17 @@ The workshop is intentionally short, consisting of four 2-hr sessions (with a 1-
 
 ## Workshop Registration
 
-- WWAMI students: 
-  - No action needed if you have been in contact with IOURMR Research Core regarding your project already.
-- Students from other SHAMP programs or other academic units: 
-  - Email Yesol and Nick ([Contact Us](#contact-us)) and let us know your intent to participate.
+- Email Yesol and Nick ([Contact Us](#contact-us)) and let us know your intent to participate.
 
-## Schedule for 2026
+## Schedule for 2027
 
 | Session | Date and Time | Topics Covered |
 | :--- | :--- | :--- |
-| **Session 0** | May 18, 11am-12pm | • Orientation to the Workbench and Workshop |
-| **Session 1** | May 21, 10am-12pm | • Introduction to cloud computing and Researcher Workbench<br>• Super-brief introduction to relational database structures and queries<br>• Selecting cohorts and building your dataset |
-| **Session 2** | May 22, 10am-12pm | • Introduction to R<br>• Working with dataframes in R<br>• Obtaining query results and data wrangling |
-| **Session 3** | May 28, 10am-12pm | • More data wrangling<br>• Exploratory data analysis<br>• Data visualization |
-| **Session 4** | May 29, 10am-12pm | • Performing statistical tests<br>• Fitting regression models |
+| **Session 0** | TBD | • Orientation to the Workbench and Workshop |
+| **Session 1** | TBD | • Introduction to cloud computing and Researcher Workbench<br>• Super-brief introduction to relational database structures and queries<br>• Selecting cohorts and building your dataset |
+| **Session 2** | TBD | • Introduction to R<br>• Working with dataframes in R<br>• Obtaining query results and data wrangling |
+| **Session 3** | TBD | • More data wrangling<br>• Exploratory data analysis<br>• Data visualization |
+| **Session 4** | TBD | • Performing statistical tests<br>• Fitting regression models |
 : {tbl-colwidths="[15,25,60]"}
 
 * **Location:** IOURMR Conference Room (D.A. Huckabay Bldg, Rm 122)
@@ -43,12 +40,12 @@ The workshop is intentionally short, consisting of four 2-hr sessions (with a 1-
 
 ::: {.column width="45%"}
 #### Yesol Sapozhnikov, PhD, RN
-Postdoctoral Fellow
+Clinical Assistant Professor
 
 - Workshop inquiries
 - *All of Us* data questions
 
-**Office:** D.A. Huckabay Medical Education Bldg 122C\
+**Office:** D.A. Huckabay Medical Education Bldg 194\
 **Email:** [yesols@uidaho.edu](mailto:yesols@uidaho.edu)
 :::
 
