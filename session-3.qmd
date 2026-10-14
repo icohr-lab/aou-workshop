@@ -29,9 +29,9 @@ We use `read_csv()` function to read CSV files into dataframes so we can work wi
 library(tidyverse)
 
 # Read directly from public URLs
-person_df <- read_csv("https://raw.githubusercontent.com/yesols/aou-workshop/refs/heads/main/data/demographic_data.csv")
-condition_df <- read_csv("https://raw.githubusercontent.com/yesols/aou-workshop/refs/heads/main/data/conditions.csv")
-drug_df <- read_csv("https://raw.githubusercontent.com/yesols/aou-workshop/refs/heads/main/data/drug_exposures.csv")
+person_df <- read_csv("https://raw.githubusercontent.com/icohr-lab/aou-workshop/refs/heads/main/data/demographic_data.csv")
+condition_df <- read_csv("https://raw.githubusercontent.com/icohr-lab/aou-workshop/refs/heads/main/data/conditions.csv")
+drug_df <- read_csv("https://raw.githubusercontent.com/icohr-lab/aou-workshop/refs/heads/main/data/drug_exposures.csv")
 ```
 
 ```{r}
@@ -199,7 +199,7 @@ To resume working on the data, let's read back in the file. This file is what we
 #| message: false
 #| eval: false
 library(tidyverse)
-df <- read_csv("https://raw.githubusercontent.com/yesols/aou-workshop/refs/heads/main/data/final_dataset.csv")
+df <- read_csv("https://raw.githubusercontent.com/icohr-lab/aou-workshop/refs/heads/main/data/final_dataset.csv")
 head(df)
 ```
 

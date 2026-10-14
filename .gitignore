@@ -8,6 +8,3 @@
 /_site/
 **/*.quarto_ipynb
 
-# Notebook generator test output
-notebooks/generator/tests/
-__pycache__/

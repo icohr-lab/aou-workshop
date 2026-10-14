@@ -1,8 +1,5 @@
 project:
   type: website
-  render:
-    - "*.qmd"
-    - "!notebooks/"
 
 website:
   title: "AoU Workshop"
@@ -28,7 +25,7 @@ website:
           - text: "Session 4: Statistical Analysis and JupyterLab Tips"
             file: session-4.qmd
       - text: "Self-Paced R Tutorials"
-        file: tutorials.qmd
+        href: https://icohr-lab.github.io/tutorials/
       - text: "Additional Resources"
         file: resources.qmd
 
