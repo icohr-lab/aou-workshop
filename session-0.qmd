@@ -11,7 +11,7 @@ number-depth: 3
 
 ## Resources
 
-These files are linked in the [Additional Resources](resources.qmd) page
+These files are linked in the [Additional Resources](resources.qmd){target="_blank"} page
 
 - Analysis Plan
 - Researcher's Guide to Using the Workbench

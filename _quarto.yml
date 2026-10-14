@@ -41,5 +41,6 @@ format:
     toc-title: "On this page"
     toc-depth: 3
     code-copy: true
+    link-external-newwindow: true   # Opens external links in a new tab
     lightbox: true      # Enables click-to-enlarge for all images
     

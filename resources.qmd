@@ -8,8 +8,8 @@ title: "Additional Resources"
 - [All of Us YouTube Channel](https://www.youtube.com/@AllOfUsResearcherWorkbench)
 
 ## Course Supplemental Materials
-- [Analysis Plan Template](resources/analysis_plan_template.docx)
-- [Researcher's Guide to Using the Workbench](resources/guide_legacy_wb.pdf)
+- [Analysis Plan Template](resources/analysis_plan_template.docx){target="_blank"}
+- [Researcher's Guide to Using the Workbench](resources/guide_legacy_wb.pdf){target="_blank"}
   - This guide is created by RTI International who partners with the *All of Us* Research Program in training researchers. Chapter 2 contains information about courses they offer and their "Amaze" platform for learning. But this is not required or expected for our workshop.
   - The information about workbench navigation and tools (Chapters 6-9) are outdated due to the recent roll-out of Workbench 2.0. However, the rest of the guide is still very helpful.
 

@@ -6,7 +6,7 @@ number-depth: 3
 
 ## Learning Objectives
 
-In this last session, we will perform statistical tests and fit models that are common in medical research. Detailed discussions on statistics are beyond the scope of this workshop. If you want to learn more about these tests, check out links provided in [Additional Resources](resources.qmd).
+In this last session, we will perform statistical tests and fit models that are common in medical research. Detailed discussions on statistics are beyond the scope of this workshop. If you want to learn more about these tests, check out links provided in [Additional Resources](resources.qmd){target="_blank"}.
 
 At the end of Session 4, learners will be able to:
 
