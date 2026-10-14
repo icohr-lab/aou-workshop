@@ -166,7 +166,7 @@ names(df)
 ```{r}
 head(df)
 ```
-The default is to show 5 rows but you can specify the number of rows inside the function. For example, `head(df, 10)` will show the first 10 rows.
+The default is to show 6 rows but you can specify the number of rows inside the function. For example, `head(df, 10)` will show the first 10 rows.
 
 `table()` is a quick way to see value counts in a column.
 ```{r}

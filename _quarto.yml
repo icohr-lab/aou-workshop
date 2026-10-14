@@ -1,5 +1,8 @@
 project:
   type: website
+  render:
+    - "*.qmd"
+    - "!notebooks/"
 
 website:
   title: "AoU Workshop"
@@ -24,6 +27,8 @@ website:
             file: session-3.qmd
           - text: "Session 4: Statistical Analysis and JupyterLab Tips"
             file: session-4.qmd
+      - text: "Self-Paced R Tutorials"
+        file: tutorials.qmd
       - text: "Additional Resources"
         file: resources.qmd
 
